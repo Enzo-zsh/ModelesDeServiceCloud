@@ -16,6 +16,6 @@ deploy:
 		--env-file=.env \
 	docker.io/maissacrement/ansibledind:latest
 
-deploy_fass: deploy # APPEL DEPLOY
+deploy_faas: deploy # APPEL DEPLOY
 	@docker exec -it $(APP_NAME) /bin/bash -c "ansible-playbook /home/functionAsAService.yml"
 	@docker rm -f /$(APP_NAME);echo 1;
