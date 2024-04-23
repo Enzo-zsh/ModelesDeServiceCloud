@@ -17,5 +17,5 @@ deploy:
 	docker.io/maissacrement/ansibledind:latest
 
 deploy_iaas: deploy
-	@docker exec -it $(APP_NAME) /bin/bash -c "ansible-playbook /Users/enzo/Desktop/cloud/GitHub/ModelesDeServiceCloud/IAAS/deploy.yml"
+	@docker exec -it $(APP_NAME) /bin/bash -c "ansible-playbook /home/deploy.yml"
 	@docker rm -f /$(APP_NAME);echo 1;
