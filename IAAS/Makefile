@@ -11,11 +11,11 @@ doc:
 deploy:
 	@docker rm -f /$(APP_NAME);echo 1;
 	@docker run -i --rm -d --name $(APP_NAME) \
-		-v "${PWD}/functionAsAService.yml:/home/functionAsAService.yml" \
+		-v "${PWD}/deploy.yml:/home/deploy.yml" \
 		-v /var/run/docker.sock:/var/run/docker.sock \
 		--env-file=.env \
 	docker.io/maissacrement/ansibledind:latest
 
 deploy_iaas: deploy
-	@docker exec -it $(APP_NAME) /bin/bash -c "ansible-playbook /Users/enzo/Desktop/cloud/GitHub/ModelesDeServiceCloud/IAAS/functionAsAService.yml"
+	@docker exec -it $(APP_NAME) /bin/bash -c "ansible-playbook /Users/enzo/Desktop/cloud/GitHub/ModelesDeServiceCloud/IAAS/deploy.yml"
 	@docker rm -f /$(APP_NAME);echo 1;
