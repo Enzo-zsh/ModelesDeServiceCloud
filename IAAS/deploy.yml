@@ -23,7 +23,7 @@
     - name: Create Virtual network
       azure_rm_virtualnetwork:
         resource_group: IAAS_GRP
-        name: IAAS_LAN
+        name: IAAS_GRP_Network
         address_prefixes_cidr: 10.11.12.0/24
         # msg: "Go to virtual network doc https://docs.ansible.com/ansible/latest/collections/azure/azcollection/azure_rm_virtualnetwork_module.html"
 
