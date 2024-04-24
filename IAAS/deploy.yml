@@ -27,12 +27,24 @@
         address_prefixes_cidr: 10.11.12.0/24
         # msg: "Go to virtual network doc https://docs.ansible.com/ansible/latest/collections/azure/azcollection/azure_rm_virtualnetwork_module.html"
 
-    - name: Create a subnet
+    - name: Create a Subnet
       azure_rm_subnet:
         resource_group: IAAS_GRP
-        virtual network name: IAAS_GRP_Network
+        virtual_network_name: IAAS_GRP_Network
         name: IAAS_GRP_Subnet
-        address_prefixes_cidr: "10.11.12.0/24"
+        address_prefix_cidr: "10.11.12.0/24"
+
+    - name: Create a public a ip address
+      azure_rm_publicipaddress:
+        resource_group: IAAS_GRP
+        name: IAAS_GRP_PublicAddress
+        allocation_method: static
+        domain_name: iaasdomain
+      register: output_ip_domain
+    
+    - name: Output public IP
+      debug:
+        # msg: "The public IP is {{ output_ip_address.state.ip_address }}"
   
       # debug:
       #   msg: "Go to ressource group doc https://docs.ansible.com/ansible/latest/collections/azure/azcollection/azure_rm_resourcegroup_module.html"
