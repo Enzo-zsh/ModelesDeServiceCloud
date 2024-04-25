@@ -94,11 +94,15 @@
       azure_rm_virtualmachine:
         name: iaas_interface
         resource_group: IAAS_GRP
-        image: Win2022AzureEditionCore
-        public-ip-sku: Standard 
-        admin-username: admin-iaas
-        admin-password: P@55w0rd2024
-        vnet-name: IAAS_GRP_Network
+        public_ip_sku: static
+        admin_username: admin-iaas
+        admin_password: P@55w0rd2024
+        network_interfaces: IAAS_GRP_Network
+        image:
+          offer: WindowsServer2019
+          publisher: Microsoft
+          sku: '7.1'
+          version: latest
         # public_ip_allocation: Static
 
 
