@@ -73,20 +73,32 @@
             access: Allow
             priority: 1003
             direction: Inbound
-    - name: Create a network interface
 
+    - name: Delete network interface
       azure_rm_networkinterface:
-        name: IAAS_GRP
         resource_group: IAAS_GRP
-        virtual_network: vNet
-        subnet_name: "IAAS_GRP_Subnet"
-        security_group: "IAAS_Security_Group"
-        ip_configurations:
-          - name: default
-            public_ip_address_name: "IAAS_GRP_PublicAddress"
-            primary: True
+        name: IAAS_GRP-vNet
+        state: absent
 
-
+    - name: Create a network interface
+      azure_rm_networkinterface:
+        name: iaas_interface
+        resource_group: IAAS_GRP
+        virtual_network: IAAS_GRP_Network
+        subnet_name: IAAS_GRP_Subnet
+        security_group: IAAS_Security_Group
+        public_ip_address_name: "IAAS_GRP_PublicAddress"
+        state: present
+    
+    - name: Create VM
+      azure_rm_virtualmachine:
+        name: iaas_interface
+        resource_group: IAAS_GRP
+        image: Win2022AzureEditionCore
+        public-ip-sku: Standard 
+        admin-username: "{{lookup('env', 'vm_user')}}"
+        admin-password: "{{lookup('env', 'vm_password')}}"
+        vnet-name: "{{vnet_name}}"
 
 
         # msg: "The public IP is {{ output_ip_address.state.ip_address }}"
