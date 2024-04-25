@@ -90,15 +90,24 @@
         public_ip_address_name: "IAAS_GRP_PublicAddress"
         state: present
     
+    - name: Create a Storage Account for Azure Function
+      azure_rm_storageaccount:
+        resource_group: IAAS_GRP
+        name: Stora2
+        kind: StorageV2
+        account_type: Standard_LRS
+
     - name: Create VM
       azure_rm_virtualmachine:
-        name: iaas_interface
+        name: iaas_VM
         resource_group: IAAS_GRP
+        vm_size: Standard_DS1_v2
         public_ip_allocation_method: Static
         admin_username: admin-iaas
         admin_password: P@55w0rd2024
         network_interfaces: IAAS_GRP_Network
-        storage_account: IAAS_storage
+        storage_account: IAASstorage
+        os_type: Windows
         image:
           offer: WindowsServer
           publisher: MicrosoftWindowsServer
