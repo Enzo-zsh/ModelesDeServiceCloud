@@ -37,18 +37,7 @@
     #   debug:
     #     msg: "Go to network interface doc https://docs.ansible.com/ansible/latest/collections/azure/azcollection/azure_rm_networkinterface_module.html"
 
-    # - name: Create a network interface
-    #   azure_rm_networkinterface
-    #     name: "{{vnet_name}}"
-    #     resource_group: ansible-rg
-    #     virtual_network: vNet
-    #     subnet_name: "{{vnet_subnet}}"
-    #     security_group: "{{security_group_name}}"
-    #     ip_configurations:
-    #       - name: default
-    #         public_ip_address_name: "{{public_ip_name}}"
-    #         primary: True
-
+    
     # - name: Create your VM
     #   debug:
     #     msg: "Go to vm doc https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-create"
