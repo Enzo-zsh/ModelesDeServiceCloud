@@ -1,5 +1,6 @@
 **/.env
 **/deploy_master.yml
 **/debug_deploy.yml
+**/.DS_Store
 
 main
