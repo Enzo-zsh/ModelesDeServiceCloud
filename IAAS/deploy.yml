@@ -93,7 +93,7 @@
     - name: Create a Storage Account for Azure Function
       azure_rm_storageaccount:
         resource_group: IAAS_GRP
-        name: stora2
+        name: stora3
         kind: StorageV2
         account_type: Standard_LRS
 
@@ -106,7 +106,7 @@
         admin_username: admin-iaas
         admin_password: P@55w0rd2024
         network_interfaces: IAAS_GRP_Network
-        storage_account: IAASstorage
+        storage_account: stora3
         os_type: Windows
         image:
           offer: WindowsServer
