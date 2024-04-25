@@ -73,4 +73,4 @@ https://github.com/Maissacrement/cloudprovision/blob/main/playbook.yml
 Adoptez une approche Infrastructure as Code pour générer des machines virtuelles exportables sur n'importe quelle machine, éliminant ainsi l'échange de snapshots
 https://github.com/Maissacrement/FreeBSDAnsible/blob/master/Vagrantfile
 
-# Modeles de service cloud
+# ModelesDeServiceCloud
