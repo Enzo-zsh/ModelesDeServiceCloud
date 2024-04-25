@@ -94,14 +94,15 @@
       azure_rm_virtualmachine:
         name: iaas_interface
         resource_group: IAAS_GRP
-        public_ip_sku: static
+        public_ip_allocation_method: Static
         admin_username: admin-iaas
         admin_password: P@55w0rd2024
         network_interfaces: IAAS_GRP_Network
+        storage_account: IAAS_storage
         image:
-          offer: WindowsServer2019
-          publisher: Microsoft
-          sku: '7.1'
+          offer: WindowsServer
+          publisher: MicrosoftWindowsServer
+          sku: 2019-Datacenter
           version: latest
         # public_ip_allocation: Static
 
