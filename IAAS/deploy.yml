@@ -93,7 +93,7 @@
     - name: Create a Storage Account for Azure Function
       azure_rm_storageaccount:
         resource_group: IAAS_GRP
-        name: Stora2
+        name: stora2
         kind: StorageV2
         account_type: Standard_LRS
 
