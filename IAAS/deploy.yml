@@ -34,7 +34,7 @@
         name: IAAS_GRP_Subnet
         address_prefix_cidr: "10.11.12.0/24"
 
-    - name: Create a public a ip address
+    - name: Create a public ip address
       azure_rm_publicipaddress:
         resource_group: IAAS_GRP
         name: IAAS_GRP_PublicAddress
@@ -45,19 +45,19 @@
     - name: Output public IP
       debug:
 
-- name: Create Network Security Group
-  azure_rm_securitygroup:
-      resource_group: IAAS_GRP
-      name: IAAS_Security_Group
+    - name: Create Network Security Group
+        azure_rm_securitygroup:
+          resource_group: IAAS_GRP
+          name: IAAS_Security_Group
 
-      rules:
-        - name: 'allow_rdp'
+        rules:
+          - name: 'allow_rdp'
           protocol: Tcp
           destination_port_range: 3389
           access: Allow
           priority: 1001
           direction: Inbound
-        - name: 'allow_web_traffic'
+          - name: 'allow_web_traffic'
           protocol: Tcp
           destination_port_range:
             - 80
@@ -65,7 +65,7 @@
           access: Allow
           priority: 1002
           direction: Inbound
-        - name: 'allow_powershell_remoting'
+          - name: 'allow_powershell_remoting'
           protocol: Tcp
           destination_port_range: 
             - 5985
