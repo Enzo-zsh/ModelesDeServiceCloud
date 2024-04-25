@@ -99,13 +99,13 @@
 
     - name: Create VM
       azure_rm_virtualmachine:
-        name: iaas_VM
+        name: iaasvm
         resource_group: IAAS_GRP
         vm_size: Standard_DS1_v2
         public_ip_allocation_method: Static
         admin_username: admin-iaas
         admin_password: P@55w0rd2024
-        network_interfaces: IAAS_GRP_Network
+        network_interfaces: iaas_interface
         storage_account: stora3
         os_type: Windows
         image:
