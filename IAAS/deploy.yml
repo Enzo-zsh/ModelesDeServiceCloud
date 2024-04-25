@@ -96,9 +96,10 @@
         resource_group: IAAS_GRP
         image: Win2022AzureEditionCore
         public-ip-sku: Standard 
-        admin-username: "{{lookup('env', 'vm_user')}}"
-        admin-password: "{{lookup('env', 'vm_password')}}"
-        vnet-name: "{{vnet_name}}"
+        admin-username: admin-iaas
+        admin-password: P@55w0rd2024
+        vnet-name: IAAS_GRP_Network
+        # public_ip_allocation: Static
 
 
         # msg: "The public IP is {{ output_ip_address.state.ip_address }}"
