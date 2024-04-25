@@ -44,6 +44,38 @@
     
     - name: Output public IP
       debug:
+
+- name: Create Network Security Group
+  azure_rm_securitygroup:
+      resource_group: IAAS_GRP
+      name: IAAS_Security_Group
+
+      rules:
+        - name: 'allow_rdp'
+          protocol: Tcp
+          destination_port_range: 3389
+          access: Allow
+          priority: 1001
+          direction: Inbound
+        - name: 'allow_web_traffic'
+          protocol: Tcp
+          destination_port_range:
+            - 80
+            - 443
+          access: Allow
+          priority: 1002
+          direction: Inbound
+        - name: 'allow_powershell_remoting'
+          protocol: Tcp
+          destination_port_range: 
+            - 5985
+            - 5986
+          access: Allow
+          priority: 1003
+          direction: Inbound
+
+
+
         # msg: "The public IP is {{ output_ip_address.state.ip_address }}"
   
       # debug:
