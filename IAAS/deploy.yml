@@ -113,10 +113,3 @@
           publisher: MicrosoftWindowsServer
           sku: 2019-Datacenter
           version: latest
-        # public_ip_allocation: Static
-
-
-        # msg: "The public IP is {{ output_ip_address.state.ip_address }}"
-  
-      # debug:
-      #   msg: "Go to ressource group doc https://docs.ansible.com/ansible/latest/collections/azure/azcollection/azure_rm_resourcegroup_module.html"
